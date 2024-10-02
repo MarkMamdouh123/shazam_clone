@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shazam_clone/models/shazam_song_model.dart';
 import 'package:shazam_clone/services/song_services.dart';
 
-// HomeViewModel class extending ChangeNotifier
 class HomeViewModel extends ChangeNotifier {
   HomeViewModel() {
     initAcr();
@@ -49,15 +48,15 @@ class HomeViewModel extends ChangeNotifier {
       }
     } else {
       print("No valid metadata found for the song.");
-      success = false; // If no metadata, it's a failure
+      success = false;
     }
-    notifyListeners(); // Notify listeners after state change
+    notifyListeners();
   }
 
   Future<void> startRecognizing() async {
     if (!isRecognizing) {
       isRecognizing = true;
-      success = false; // Reset success when starting recognition
+      success = false;
       notifyListeners();
       try {
         await acr.start();

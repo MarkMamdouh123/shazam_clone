@@ -9,10 +9,8 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Use ref.watch to listen to changes in the HomeViewModel
     final vm = ref.watch(homeViewModelProvider);
 
-    // Use ref.listen to handle side effects when success changes
     ref.listen<HomeViewModel>(homeViewModelProvider, (previous, next) {
       if (next.success) {
         vm.isRecognizing = false;
@@ -55,9 +53,9 @@ class HomePage extends HookConsumerWidget {
               child: GestureDetector(
                 onTap: () async {
                   if (!vm.isRecognizing) {
-                    await vm.startRecognizing(); // Start recognizing
+                    await vm.startRecognizing();
                   } else {
-                    await vm.stopRecognizing(); // Stop recognizing
+                    await vm.stopRecognizing();
                   }
                 },
                 child: CircleAvatar(

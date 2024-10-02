@@ -22,23 +22,19 @@ class SongServices {
             'Accept': 'application/json;charset=UTF-8',
           }));
 
-      // Check if response data is not null
       if (response.data != null) {
-        // Deserialize response data into ShazamSongModel
         return ShazamSongModel.fromJson(response.data);
       } else {
         throw 'No data found for the given track ID.';
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        // Handling errors from the response
         throw 'An error occurred: ${e.response?.data}';
       } else {
         debugPrint(e.error.toString());
         throw 'An error occurred: ${e.error}';
       }
     } catch (e) {
-      // Catching any other type of error
       throw 'An unexpected error occurred: $e';
     }
   }

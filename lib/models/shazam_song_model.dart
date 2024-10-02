@@ -1,11 +1,3 @@
-import 'dart:convert';
-
-ShazamSongModel shazamSongModelFromJson(String str) =>
-    ShazamSongModel.fromJson(json.decode(str));
-
-String shazamSongModelToJson(ShazamSongModel data) =>
-    json.encode(data.toJson());
-
 class ShazamSongModel {
   String? id;
   bool? readable;

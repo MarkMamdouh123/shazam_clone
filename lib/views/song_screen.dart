@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../models/shazam_song_model.dart';
 
 class SongScreen extends StatelessWidget {
-  final ShazamSongModel? song; // Declare final to ensure immutability
+  final ShazamSongModel? song;
 
   // Constructor
-  SongScreen({super.key, required this.song}); // Use `required` for clarity
+  SongScreen({super.key, required this.song});
 
   @override
   Widget build(BuildContext context) {
