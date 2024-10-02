@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shazam_clone/views/home_page.dart';
 
 void main() {
-  runApp(const Shazam());
+  runApp(
+    ProviderScope(
+      child: const Shazam(),
+    ),
+  );
 }
 
 class Shazam extends StatelessWidget {
@@ -11,10 +16,11 @@ class Shazam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: HomePage.routeName,
-      routes: {
-        HomePage.routeName: (context) => HomePage(),
-      },
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
     );
   }
 }
